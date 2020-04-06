@@ -12,6 +12,7 @@ How to use
 
 The above reference identifier (1804sk23), here is a mapping as of this point in time:
 
+```
 Config | Montreal | France
 KS-1 | 1804sk12 | 1801sk12
 KS-2 | 1804sk13 | 1801sk13
@@ -25,10 +26,13 @@ KS-9 | 1804sk20 | 1801sk20
 KS-10 | 1804sk21 | 1801sk21
 KS-11 | 1804sk22 | 1801sk22
 KS-12 | 1804sk23 | 1801sk23
+```
 
 3. Create a CloudWatch Rule in AWS that run's on a schedule (of your choosing), configured to execute your Lambda function with a JSON string passed to it that includes your desired config and SMS enabled phone number to be notified at:
 
+```
 {
   "server": "1804sk23",
   "phone": "+15555555555"
 }
+```
