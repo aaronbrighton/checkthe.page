@@ -152,7 +152,7 @@ The following InputTemplate monitors [https://www.kimsufi.com/en/servers.xml](ht
         "headers": {
             "referer": "https://www.kimsufi.com/en/order/kimsufi.xml?reference=1804sk18"
         },
-        "trigger_pattern_regex": "{((?!-1).)*?zone\\":\\"bhs((?!-1).)*?(?=})"
+        "trigger_pattern_regex": "{((?!-1).)*?zone\":\"bhs((?!-1).)*?(?=})"
     },
     "notify_phone": "+1-555-555-5555",
     "notify_message": "KS-7 in BHS (Montreal) is now available via kimsufi.com!",
