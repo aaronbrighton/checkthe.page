@@ -1,0 +1,18 @@
+{
+    "trigger_request": {
+        "method": "GET",
+        "url": "https://dedicated.com/includes/dedicated-servers-list.php",
+        "headers": {
+            "referer": "https://dedicated.com/dedicated-servers",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:74.0) Gecko/20100101 Firefox/74.0",
+            "X-Requested-With": "XMLHttpRequest",
+            "TE": "Trailers"
+        },
+        "data": {
+            "ajax": "ajax"
+        },
+        "trigger_pattern_regex": "pid=1&configoption\\[102\\]=453((?!Out).)*?(?=<\\/p>)"
+    },
+    "notify_phone": "+1-555-555-5555",
+    "notify_message": "E3-1230v2 in Los Angeles is now available via dedicated.com!"
+}

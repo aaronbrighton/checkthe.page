@@ -1,0 +1,28 @@
+{
+    "session_request": {
+        "method": "GET",
+        "url": "https://ws.ovh.com/sessionHandler/r4/ws.dispatcher/getAnonymousSession",
+        "params": {
+            "callback": "angular.callbacks._1",
+            "params": "{\"language\":\"ie\"}"
+        },
+        "headers": {
+            "referer": "https://www.kimsufi.com/en/order/kimsufi.xml?reference=1804sk18"
+        },
+        "session_identifier_regex": "id\":\"(.*?)\""
+    },
+    "trigger_request": {
+        "method": "GET",
+        "url": "https://ws.ovh.com/order/dedicated/servers/ws.dispatcher/getPossibleOptionsAndAvailability",
+        "params": {
+            "callback": "angular.callbacks._3",
+            "params": "{\"sessionId\":\"{SESSIONID}\",\"billingCountry\":\"KSEU\",\"dedicatedServer\":\"1804sk18\",\"installFeeMode\":\"directly\",\"duration\":\"1m\"}"
+        },
+        "headers": {
+            "referer": "https://www.kimsufi.com/en/order/kimsufi.xml?reference=1804sk18"
+        },
+        "trigger_pattern_regex": "{((?!-1).)*?zone\":\"bhs((?!-1).)*?(?=})"
+    },
+    "notify_phone": "+1-555-555-5555",
+    "notify_message": "KS-7 in BHS (Montreal) is now available via kimsufi.com!"
+}

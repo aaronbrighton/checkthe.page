@@ -1,0 +1,51 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  NotifierFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: lambda/
+      Handler: app.lambda_handler
+      Runtime: python3.8
+      Timeout: 15
+      MemorySize: 1024
+      Policies:
+        - Version: '2012-10-17' 
+          Statement:
+            - Effect: Allow
+              Action:
+                - events:DeleteRule
+                - events:RemoveTargets
+                - events:ListTargetsByRule
+              Resource: '*'
+            - Effect: Allow
+              Action:
+                - sns:Publish
+              Resource: '*'
+  NotifierFunctionInvocationRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - events.amazonaws.com
+            Action:
+              - 'sts:AssumeRole'
+      Policies:
+        - PolicyName: root
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: lambda:InvokeFunction
+                Resource: !GetAtt NotifierFunction.Arn
+Outputs:
+  NotifierFunction:
+    Description: "Notifier Lambda Function ARN"
+    Value: !GetAtt NotifierFunction.Arn
+  NotifierFunctionInvocationRole:
+    Description: "Invocation Role for a CloudWatch rule to assume"
+    Value: !GetAtt NotifierFunctionInvocationRole.Arn
